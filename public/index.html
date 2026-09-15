@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Real-Time Chat Application</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div id="messageNotification" class="message-notification"></div>
+
+
+    <div class="chat-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>SayHEY👋</h2>
+                <button id="logoutBtn">Logout</button>
+            </div>
+
+            <div class="current-user">
+                <span id="currentUsername"></span>
+                <span class="online-dot"></span>
+            </div>
+
+            <div class="users-section">
+                <h3>Users</h3>
+
+                <div id="usersList">
+                    <!-- Users will be added using JavaScript -->
+                </div>
+            </div>
+
+        </aside>
+
+
+        <!-- Chat area -->
+        <main class="chat-area">
+
+            <header class="chat-header">
+                <div>
+                    <h2 id="chatUsername">Select a user</h2>
+                    <p id="chatStatus"></p>
+                </div>
+            </header>
+
+
+            <!-- Messages -->
+            <div id="messages" class="messages">
+                <div class="empty-chat">
+                    <h3>Welcome to SayHEY👋</h3>
+                    <p>Select a user to start chatting.</p>
+                </div>
+            </div>
+
+
+            <!-- Typing indicator -->
+            <div id="typingIndicator" class="typing-indicator"></div>
+
+
+            <!-- Message input -->
+            <div class="message-input">
+
+                <input
+                    type="text"
+                    id="messageInput"
+                    placeholder="Type a message..."
+                    autocomplete="off"
+                    disabled
+                />
+
+                <button id="sendBtn" disabled>
+                    Send
+                </button>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- Socket.io client -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- Our JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

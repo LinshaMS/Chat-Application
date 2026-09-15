@@ -1,0 +1,498 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    height: 100vh;
+}
+
+.chat-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+    width: 300px;
+    background: #ffffff;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-header h2 {
+    font-size: 22px;
+}
+
+#logoutBtn {
+    border: none;
+    background: #e74c3c;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#logoutBtn:hover {
+    background: #c0392b;
+}
+
+
+/* Current user */
+
+.current-user {
+    padding: 15px 20px;
+    background: #f7f7f7;
+    border-bottom: 1px solid #eee;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.online-dot {
+    width: 9px;
+    height: 9px;
+    background: #2ecc71;
+    border-radius: 50%;
+}
+
+
+/* Users */
+
+.users-section {
+    padding: 20px;
+}
+
+.users-section h3 {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+#usersList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.user-item {
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-item:hover {
+    background: #f0f0f0;
+}
+
+.user-item.active {
+    background: #e8f0fe;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #aaa;
+}
+
+.status-dot.online {
+    background: #2ecc71;
+}
+
+.user-status {
+    font-size: 12px;
+    color: #888;
+}
+
+
+/* ================= CHAT AREA ================= */
+
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #f8f8f8;
+}
+
+
+/* Chat header */
+
+.chat-header {
+    height: 75px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 25px;
+}
+
+.chat-header h2 {
+    font-size: 19px;
+}
+
+.chat-header p {
+    font-size: 13px;
+    color: #2ecc71;
+    margin-top: 4px;
+}
+
+
+/* ================= MESSAGES ================= */
+
+.messages {
+    flex: 1;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    overflow-y: auto;
+}
+
+.empty-chat {
+    margin: auto;
+    text-align: center;
+    color: #888;
+}
+
+.empty-chat h3 {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+
+/* Message */
+
+.message {
+    max-width: 65%;
+    padding: 10px 14px;
+    border-radius: 12px;
+
+    word-wrap: break-word;
+}
+
+.message.sent {
+    align-self: flex-end;
+    background: #007bff;
+    color: white;
+    border-bottom-right-radius: 3px;
+}
+
+.message.received {
+    align-self: flex-start;
+    background: white;
+    color: #333;
+    border-bottom-left-radius: 3px;
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.message-text {
+    font-size: 15px;
+}
+
+.message-time {
+    font-size: 10px;
+    margin-top: 5px;
+    opacity: 0.7;
+}
+
+
+/* ================= TYPING ================= */
+
+.typing-indicator {
+    height: 25px;
+    padding-left: 25px;
+
+    font-size: 13px;
+    color: #888;
+}
+
+
+/* ================= INPUT ================= */
+
+.message-input {
+    height: 70px;
+    background: white;
+    border-top: 1px solid #ddd;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+    padding: 12px 20px;
+}
+
+#messageInput {
+    flex: 1;
+
+    height: 45px;
+
+    border: 1px solid #ddd;
+    border-radius: 22px;
+
+    padding: 0 18px;
+
+    outline: none;
+    font-size: 15px;
+}
+
+#messageInput:focus {
+    border-color: #007bff;
+}
+
+#sendBtn {
+    height: 45px;
+
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 22px;
+
+    background: #007bff;
+    color: white;
+
+    cursor: pointer;
+}
+
+#sendBtn:hover {
+    background: #0069d9;
+}
+
+#sendBtn:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .message {
+        max-width: 80%;
+    }
+
+}
+/* ===============================
+   LOGIN PAGE
+================================ */
+
+.login-container {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: 380px;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    text-align: center;
+}
+
+.login-box h1 {
+    margin-bottom: 8px;
+}
+
+.login-subtitle {
+    color: #888;
+    margin-bottom: 25px;
+}
+
+
+/* ===============================
+   LOGIN & REGISTER INPUTS
+================================ */
+
+#loginForm input,
+#registerForm input {
+    width: 100%;
+
+    height: 45px;
+
+    padding: 0 12px;
+
+    margin: 8px 0;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 15px;
+}
+
+#loginForm input:focus,
+#registerForm input:focus {
+    border-color: #007bff;
+}
+
+
+/* ===============================
+   LOGIN & REGISTER BUTTONS
+================================ */
+
+#loginForm button,
+#registerForm button {
+    width: 100%;
+
+    height: 45px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #007bff;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+#loginForm button:hover,
+#registerForm button:hover {
+    background: #0069d9;
+}
+
+
+/* ===============================
+   AUTH MESSAGES
+================================ */
+
+#loginMessage,
+#registerMessage {
+    margin-top: 15px;
+
+    font-size: 14px;
+}
+
+
+/* ===============================
+   LOGIN / REGISTER LINK
+================================ */
+
+.auth-link {
+    margin-top: 18px;
+
+    font-size: 14px;
+
+    color: #777;
+}
+
+.auth-link a {
+    color: #007bff;
+
+    text-decoration: none;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* ===============================
+   MESSAGE NOTIFICATION
+================================ */
+
+.message-notification {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    background: white;
+
+    padding: 15px 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    font-size: 14px;
+
+    display: none;
+
+    z-index: 1000;
+
+    cursor: pointer;
+}
+
+.message-notification.show {
+    display: block;
+}
+
+
+.user-status-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.unread-badge {
+    min-width: 20px;
+    height: 20px;
+
+    padding: 0 6px;
+
+    border-radius: 10px;
+
+    background: #007bff;
+
+    color: white;
+
+    font-size: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

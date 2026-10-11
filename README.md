@@ -1,103 +1,63 @@
-# SayHey 👋
+# SayHey 👋 — Real-Time Chat Application
 
-A real-time chat application built with Node.js, Express.js, Socket.io, MongoDB and JWT authentication.
+A full-stack chat application that enables users to communicate in real time, with secure authentication and persistent message history.
 
-## 🚀 Features
+## Features
 
 - User registration and login
 - JWT-based authentication
-- One-to-one real-time messaging
-- Socket.io integration
-- Chat history stored in MongoDB
-- Online/offline user status
-- Last seen status
-- Typing indicator
-- New message notifications
-- Unread message count
-- Secure message handling
+- One-to-one real-time messaging with Socket.IO
+- Persistent chat history using MongoDB
+- Online/offline status and last seen
+- Typing indicators and message notifications
 - Password hashing with bcryptjs
 - Protected REST APIs
 
-## 🛠️ Technologies Used
+## Tech Stack
 
-### Frontend
-- HTML
-- CSS
-- JavaScript
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Node.js, Express.js, TypeScript
+- **Database:** MongoDB, Mongoose
+- **Real-time Communication:** Socket.IO
+- **Authentication:** JWT, bcryptjs
 
-### Backend
-- Node.js
-- Express.js
-- TypeScript
-- Socket.io
+## Screenshot
 
-### Database
-- MongoDB
-- Mongoose
+![SayHey Chat Dashboard](public/chat-dashboard.png)
 
-### Authentication & Security
-- JSON Web Tokens (JWT)
-- bcryptjs
+## Run Locally
 
-### Tools
-- Git
-- GitHub
-- Postman
-- MongoDB Compass
-- VS Code
+1. Clone the repository:
 
-## 📂 Project Structure
+   ```bash
+   git clone https://github.com/LinshaMS/Chat-Application.git
+   cd Chat-Application
+   ```
 
-```text
-Chat-Application/
-│
-├── public/
-│   ├── index.html
-│   ├── style.css
-│   ├── script.js
-│   ├── login.html
-│   ├── login.js
-│   ├── register.html
-│   └── register.js
-│
-├── src/
-│   ├── config/
-│   │   └── db.ts
-│   ├── controllers/
-│   │   ├── authController.ts
-│   │   └── messageController.ts
-│   ├── middleware/
-│   │   └── authMiddleware.ts
-│   ├── models/
-│   │   ├── Message.ts
-│   │   └── User.ts
-│   ├── routes/
-│   │   ├── authRoutes.ts
-│   │   └── messageRoutes.ts
-│   ├── utils/
-│   │   └── generateToken.ts
-│   └── server.ts
-│
-├── .gitignore
-├── package.json
-├── package-lock.json
-└── tsconfig.json
+2. Install dependencies:
 
-## 💡 Key Functionality
+   ```bash
+   npm install
+   ```
 
-SayHey uses Socket.io to establish real-time communication between users. Messages are stored in MongoDB so that previous conversations can be retrieved when users open a chat.
+3. Create a `.env` file with your MongoDB connection string and JWT secret:
 
-JWT authentication is used to secure both REST API requests and Socket.io connections.
+   ```env
+   PORT=5000
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_secret_key
+   ```
 
-## 🔐 Security
+4. Start the application using the development script configured in `package.json`:
 
-- Passwords are hashed using bcryptjs.
-- JWT is used for authentication.
-- Protected REST API routes require a valid JWT.
-- Socket.io connections require JWT authentication.
-- Message sender identity is derived from the authenticated user.
+   ```bash
+   npm run dev
+   ```
 
-## 👩‍💻 Author
+5. Open `http://localhost:5000/login.html` in your browser.
 
-Linsha Mary
-B.Tech Computer Science and Engineering
+## Author
+
+**Linsha Mary** — B.Tech Computer Science and Engineering
+
+[GitHub Repository](https://github.com/LinshaMS/Chat-Application)
